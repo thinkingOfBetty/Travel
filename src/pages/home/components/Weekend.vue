@@ -2,11 +2,10 @@
 <div>
   <div class="title">周末推荐</div>
   <ul>
-    <li class="item border-bottom" v-for="item of recommendList" :key='item.id'>
+    <li class="item border-bottom" v-for="item of list" :key='item.id'>
      <div class="item-img-wrapper">
          <img :src="item.imgUrl" class="item-img">
      </div>
-
      <div class="item-msg">
        <div class="item-title">{{item.title}}</div>
        <p class="item-desc">{{item.desc}}</p>
@@ -18,28 +17,14 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/50/07fa9343791682.jpg_r_640x214_c8c3d798.jpg',
-        title: '广州正佳海洋极地',
-        desc: '赶紧去探索新世界'
-      },
-      {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1505/50/07fa9343791682.jpg_r_640x214_c8c3d798.jpg',
-        title: '广州正佳海洋极地世界',
-        desc: '赶紧去探索新世界'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
 <style lang='stylus' scoped>
 @import '~styles/mixins.styl';
   .title
-   margin-top:.2rem
    line-height: .7rem
    background: #eee
    font-size: .3rem
@@ -48,7 +33,7 @@ export default {
    .item-img-wrapper
     overflow:hidden
     height :0
-    padding-bottom:33.4%
+    padding-bottom:37.09%
     .item-img
      width:100%
    .item-msg

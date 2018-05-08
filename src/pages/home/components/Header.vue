@@ -6,7 +6,8 @@
       <div class="header-input">
         <span class="iconfont">&#xe632;</span>
         请输入城市游玩主题</div>
-      <div class="header-right">城市
+      <div class="header-right" >
+        {{this.city}}
         <span class="iconfont arrow-icon">&#xe6aa;</span>
       </div>
     </div>
@@ -14,7 +15,10 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  props: {
+    'city': Array
+  }
 }
 </script>
 <style lang="stylus" scoped>

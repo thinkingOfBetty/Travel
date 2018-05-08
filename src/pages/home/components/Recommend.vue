@@ -2,7 +2,7 @@
 <div>
   <div class="title">本期推荐</div>
   <ul>
-    <li class="item border-bottom" v-for="item of recommendList" :key='item.id'>
+    <li class="item border-bottom" v-for="item of list" :key='item.id'>
       <img :src="item.imgUrl" class="item-img">
      <div class="item-msg">
        <div class="item-title">{{item.title}}</div>
@@ -16,21 +16,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/5d/5d986aff376ff248a3.img.jpg_200x200_d1ff8bc0.jpg',
-        title: '广州正佳海洋极地',
-        desc: '赶紧去探索新世界'
-      },
-      {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1709/5d/5d986aff376ff248a3.img.jpg_200x200_d1ff8bc0.jpg',
-        title: '广州正佳海洋极地世界',
-        desc: '赶紧去探索新世界'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

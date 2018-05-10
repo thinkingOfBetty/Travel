@@ -1,11 +1,57 @@
 <template>
   <div class="search">
-      <input type="text" placeholder="请输入您想选择的城市" class="search-input">
+      <input type="text" placeholder="请输入您想选择的城市" class="search-input"
+       v-model="keyword"
+      >
+      <div class="search-content" v-show="keyword">
+        <ul>
+          <li v-for="item of list" :key="item.id" class="search-item border-bottom">{{item.name}}</li>
+          <li class="search-item border-bottom" v-show="hasNoData">没有找到符合条件的城市</li>
+        </ul>
+      </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'CitySearch'
+  name: 'CitySearch',
+  data () {
+    return {
+      keyword: '',
+      list: [],
+      timer: null
+    }
+  },
+  props: {
+    cities: Object
+  },
+  computed: {
+    hasNoData () {
+      return !this.list.length
+    }
+  },
+  watch: {
+    keyword () {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      if (!this.keyword) {
+        this.list = []
+        return
+      }
+      this.timer = setTimeout(() => {
+        const result = []
+        for (let item in this.cities) {
+          this.cities[item].forEach((value) => {
+            if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+              result.push(value)
+            }
+          })
+        }
+        this.list = result
+      }, 100)
+      return this.list
+    }
+  }
 }
 </script>
 <style lang='stylus' scoped>
@@ -22,4 +68,20 @@ export default {
     color:#666
     padding : 0 .1rem
     box-sizing :border-box
+  .search-content
+   position :absolute
+   top: 1.58rem
+   bottom:0
+   left: 0
+   right 0
+   background :#eee
+   z-index :10
+   .search-item
+    height 0.5rem
+    line-height :.5rem
+    padding-left 0.2rem
+    color:#666
+    font-size:.28rem
+    background :#fff
+
 </style>

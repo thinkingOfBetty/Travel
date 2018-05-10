@@ -16,10 +16,11 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'Home',
-  props: {
-    'city': Array
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -40,17 +41,18 @@ export default {
    padding-left: .1rem
    flex: 1
    background: #fff
-   margin-top: 0.12rem
+   margin-top: 0.22rem
    height: 0.44rem
    color: #ddd
    margin-left: .2rem
    line-height: .44rem
    border-radius: .1rem
   .header-right
-   color:fff
+   color:#fff
    text-align: center
    float: right
-   width: 1.24rem
+   min-width: 1.04re
+   padding:0 .1rem
    .arrow-icon
     color:#fff
     font-size: .24rem

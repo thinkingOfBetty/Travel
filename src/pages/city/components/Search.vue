@@ -5,13 +5,16 @@
       >
       <div class="search-content" v-show="keyword">
         <ul>
-          <li v-for="item of list" :key="item.id" class="search-item border-bottom">{{item.name}}</li>
+          <li v-for="item of list" :key="item.id"
+           class="search-item border-bottom"
+           @click="handleCityClick(item.name)">{{item.name}}</li>
           <li class="search-item border-bottom" v-show="hasNoData">没有找到符合条件的城市</li>
         </ul>
       </div>
   </div>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
   name: 'CitySearch',
   data () {
@@ -28,6 +31,14 @@ export default {
     hasNoData () {
       return !this.list.length
     }
+  },
+  methods: {
+    handleCityClick (city) {
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   watch: {
     keyword () {

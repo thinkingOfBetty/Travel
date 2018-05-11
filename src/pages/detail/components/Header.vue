@@ -1,8 +1,10 @@
 <template>
     <div class="detailHeader">
+      <router-link to='/'>
        <div class="header-abs" v-show="showAbs">
             <span class="iconfont detail-back-icon">&#xe624;</span>
         </div>
+        </router-link>
         <div class="header-fixed" v-show="!showAbs">
             <div class="header" :style="opacityStyle">
                 <router-link to='/'>
@@ -39,6 +41,9 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -55,6 +60,7 @@ export default {
    line-height: 0.72rem;
    width: 0.72rem;
    text-align: center;
+   color:#fff
   .header
    position :fixed
    top 0

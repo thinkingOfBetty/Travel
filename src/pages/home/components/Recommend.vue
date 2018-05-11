@@ -2,14 +2,15 @@
 <div>
   <div class="title">本期推荐</div>
   <ul>
-    <li class="item border-bottom" v-for="item of list" :key='item.id'>
+    <router-link tag="li"
+    to='/detail' class="item border-bottom" v-for="item of list" :key='item.id'>
       <img :src="item.imgUrl" class="item-img">
      <div class="item-msg">
        <div class="item-title">{{item.title}}</div>
        <p class="item-desc">{{item.desc}}</p>
        <button class="item-btn">详细信息</button>
      </div>
-    </li>
+    </router-link>
   </ul>
 </div>
 </template>

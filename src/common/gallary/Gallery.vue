@@ -41,6 +41,7 @@ export default {
     bottom -2rem
     color #fff
    .container
+    z-index 10
     overflow: hidden;
     display: flex;
     flex-direction: column;

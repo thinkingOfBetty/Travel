@@ -43,6 +43,7 @@ export default {
 }
 </script>
  <style lang="stylus" scoped>
-  .test
+  .content
    height 50rem
+   border-radius .2rem
 </style>

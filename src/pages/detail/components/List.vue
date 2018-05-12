@@ -3,8 +3,8 @@
         <div class="item border-bottom" v-for="(item,index) of list" :key="index" >
             <div class="item-title-icon"></div>
             <div class="item-title">{{item.title}}</div>
-            <div v-if="item.adult" class="item-adult">
-              <detail-list :list="item.adult"></detail-list>
+            <div v-if="item.children" class="item-adult">
+              <detail-list :list="item.children"></detail-list>
             </div>
         </div>
     </div>

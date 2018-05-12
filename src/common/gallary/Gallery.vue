@@ -2,8 +2,8 @@
   <div class="container" @click="handleGalleryClick">
       <div class="wrapper">
           <swiper :options="swiperOption" >
-            <swiper-slide v-for="item in imgs" :key="item.id">
-                <img class="swiperImg galleryImg" :src="item.src">
+            <swiper-slide v-for="(item,index) in imgs" :key="index">
+                <img class="swiperImg galleryImg" :src="item">
             </swiper-slide>
           <div class="swiper-pagination"  slot="pagination"></div>
   </swiper>
@@ -56,7 +56,7 @@ export default {
      position relative
      width 100%
      height 0
-     padding-bottom 66.6%
+     padding-bottom 100%
      .galleryImg
       width 100%
 </style>

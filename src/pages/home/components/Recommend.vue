@@ -3,7 +3,7 @@
   <div class="title">本期推荐</div>
   <ul>
     <router-link tag="li"
-    to='/detail' class="item border-bottom" v-for="item of list" :key='item.id'>
+    :to="'/detail/' + item.id" class="item border-bottom" v-for="item of list" :key='item.id'>
       <img :src="item.imgUrl" class="item-img">
      <div class="item-msg">
        <div class="item-title">{{item.title}}</div>
